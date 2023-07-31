@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Midweek Index</title>
+    <style>
+            table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd; /* Add border to all sides of the table */
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ada8a8;
+            border-right: 1px solid #b1abab; /* Add vertical lines to cells */
+            background-color: #e7f5f1; /* New dark background color */
+            color: #000000; /* New text color for better contrast */
+        }
+
+        th {
+            border-right: 1px solid #7d7979; /* Add vertical lines to header cells */
+            text-align: center; /* Center align the column titles */
+            background-color: #93a392; /* New dark background color for header */
+        }
+
+        /* Set the width of each column */
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 25%;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 15%;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 20%; /* Adjust the width of the "Author" column */
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 25%; /* Adjust the width of the "Details" column */
+        }
+
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 15%;
+        }
+
+        /* Remove right border from the last cell in each row */
+        td:last-child,
+        th:last-child {
+            border-right: none;
+        }
+        #searchBar {
+    width: 50%; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    font-size: 16px; /* Adjust the font size as needed */
+    padding: 5px; /* Add padding to the search bar for better appearance */
+    margin-bottom: 11px; /* Add some space below the search bar */
+}
+th.sortable {
+            cursor: pointer;
+        }
+
+        .sort-icon {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            vertical-align: middle;
+            border: 4px solid transparent;
+        }
+
+        .sort-asc {
+            border-bottom: 4px solid black;
+        }
+
+        .sort-desc {
+            border-top: 4px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>National Midweek Index</h1>
+    <!-- Search Bar -->
+    <input type="text" id="searchBar" placeholder="Search articles, subject, author, etc...">
+    <!-- Tabs or Sections -->
+    <ul>
+        <li><a href="subject_heading_list.html">Subject Headings List</a></li>
+        <li><a href="articles_by_author.html">Articles by Author</a></li>
+        <!-- Add more tabs as needed -->
+    </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sortable" onclick="alphabetizeByTitle()">TITLE <span class="sort-icon"></span></th>
+                    <th class="sortable">OTHER TITLE</th>
+                    <th class="sortable" onclick="alphabetizeByAuthor()">AUTHOR <span class="sort-icon"></span></th>
+                    <th>DETAILS</th>
+                    <th>SUBJECT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Editorial: limitations & potentials.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 1.</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--Revolution, 1986</li>
+                            <li>Marcos administration, 1965-1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revolution or "revolution".</td>
+                    <td></td>
+                    <td>Daroy, Petrolino, B.N.</td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 3+.</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--Revolution, 1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>The military as stabilizing factor: if the situation deteriorates because of the release of all detainee, the responsibility is not ours.</td>
+                    <td>If the situation deteriorates because of the release of all detainee, the responsibility is not ours.</td>
+                    <td>Philippine News and Features</td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 5+.</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--Revolution, 1986</li>
+                            <li>Philippines--Armed forces</li>
+                            <li>Political prisoners, Release of--Philippines</li>
+                            <li>Enrile, Juan P.--Interviews</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>The rebellion of the reformists: how the idealistic rebels in the military helped ignite the uprising that led to Cory Aquino's victory.</td>
+                    <td>How the idealistic rebels in the military helped ignite the uprising that led to Cory Aquino's victory.</td>
+                    <td>Sicam, Paulynn P.</td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 7+.</td>
+                    <td>
+                        <ul>
+                            <li>New People's Army (NPA)--Philippines</li>
+                            <li>Elections--Philippines--1984</li>
+                            <li>Reform the AFP Movement (RAM)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>To EDSA-with euphoria & sorrow: a love letter to the highway that served as avenue for the fiesta of people's power.</td>
+                    <td>A love letter to the highway that served as avenue for the fiesta of people's power.</td>
+                    <td>Peñaranda, Victor Jose</td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 13+.</td>
+                    <td>
+                        <ul>
+                            <li>Epifanio de los Santos Avenue (EDSA)--Philippines--History--People power--Revolution, 1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>A ministry for art's sake: coalition of artists against urges the establishment of a government agency to promote the arts and safeguard freedom of expression.</td>
+                    <td>Coalition of artists against urges the establishment of a government agency to promote the arts and safeguard freedom of expression.</td>
+                    <td>Gamalinda, Eric</td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 31+.</td>
+                    <td>
+                        <ul>
+                            <li>Concerned Artists of the Philippines (CAP)--Art and society--Philippines</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Libnao & Sandra: a person becomes a communist because he is religious.</td>
+                    <td>A person becomes a communist because he is religious.</td>
+                    <td>Mondoñedo, Baboo</td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 36+.</td>
+                    <td>
+                        <ul>
+                            <li>New Peoples Army (NPA)--Laws and legislations--Philippines</li>
+                            <li>Libnao & Sandra--Interviews</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Yes, Virginia, there are also filipino refugees: military operations since 1972 have driven away more than five million people from their homes.</td>
+                    <td>Military operations since 1972 have driven away more than five million people from their homes.</td>
+                    <td>Marciano, Rene</td>
+                    <td>National Midweek. 1(16) March 19 1986. p. 42+.</td>
+                    <td>
+                        <ul>
+                            <li>Extrajudicial executions--Zamboanga de Sur, Philippines</li>
+                            <li>Political refugees--Zamboanga del Sur (Philippines)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Editorial: so many things cry out to be done.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 1.</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--People power--Revolution, 1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trivializing the horrors of detention.</td>
+                    <td></td>
+                    <td>Teodoro, Luis V.</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 1.</td>
+                    <td>
+                        <ul>
+                            <li>Sison, Jose Ma., 1939-2022--Political prisoners—Philippines</li>
+                            <li>De la Torre, Edicio,1943---Political prisoners--Philippines</li>
+                            <li>Morales, Horacio, 1943-2012--Political prisoner--Philippines</li>
+                            <li>Buscayno, Bernabe, 1943---Political prisoners--Philippines</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>An embarrassnent of riches.</td>
+                    <td></td>
+                    <td>Galve, Edith F.</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 4.</td>
+                    <td>
+                        <ul>
+                            <li>Marcos administration, 1965-1986--Presidents--Dwellings--Malacañan Palace (Manila, Philippines)</li>
+                            <li>Marcos, Imelda Romualdez, 1929---Shoes--Collections</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Of evolution and imagination.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 10+.</td>
+                    <td>
+                        <ul>
+                            <li>Boycotts--Philippines</li>
+                            <li>Sison, Jose Ma., 1939-2022--Political prisoners--Philippines--Interviews</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Of parents and midwives: if you yourself doubt that the revolution is partly your baby, you can't struggle over naming it, baptizing it, giving it shape.</td>
+                    <td>If you yourself doubt that the revolution is partly your baby, you can't struggle over naming it, baptizing it, giving it shape.</td>
+                    <td></td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 17+</td>
+                    <td>
+                        <ul>
+                            <li>De la Torre, Edicio, 1943---Political prisoners--Philippines--Interviews</li>
+                            <li>Buscayno, Bernabe, 1943---Political prisoners--Philippines--Interviews</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>On behalf of other prisoners.</td>
+                    <td></td>
+                    <td>Gamalinda, Eric</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 22+</td>
+                    <td>
+                        <ul>
+                            <li>Mansano, Adriano--Political prisoners--Philippines</li>
+                            <li>Tamesa, Angelo--Political prisoners--Philippines</li>
+                            <li>Yarl, Carlos--Political prisoners--Philippines</li>
+                            <li>Andal, Patria--Political prisoners--Philippines</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Forums on people's power: 'people power' & the February coup.</td>
+                    <td>'People power' & the February coup.</td>
+                    <td>Gamat, Emil A.</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 29</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--People power--Revolution, 1986</li>
+                            <li>Elections--Philippines--1984</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>An unarmed citizenry against tyranny.</td>
+                    <td></td>
+                    <td>Francia, Hilario S.</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 30</td>
+                    <td>
+                        <ul>
+                            <li>Dictatorship--Marcos administration, 1965-1986</li>
+                            <li>Philippines--History--People power--Revolution, 1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>It’s people's power not people power.</td>
+                    <td></td>
+                    <td>Bennagen, Ponciano  R.</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 30+</td>
+                    <td>
+                        <ul>
+                            <li>Dictatorship--Marcos administration, 1965-1986</li>
+                            <li>Philippines--History--People power--Revolution, 1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Miraculous revolution.</td>
+                    <td></td>
+                    <td>Perez, Ma. Luisa M.</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 32+</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--People power--Revolution, 1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>What people have to say about people power.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 33+</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--People power--Revolution, 1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Collective rights are human rights.</td>
+                    <td></td>
+                    <td>Cordillera News Agency</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 35+</td>
+                    <td>
+                        <ul>
+                            <li>Human rights--Philippines</li>
+                            <li>Cordillara People's Alliance (CPA)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Theology and liberation: the christian challenger is how to be filled with zeal for change and yet not be powered by anger and hatred but rather by concern, service and love.</td>
+                    <td>The christian challenger is how to be filled with zeal for change and yet not be powered by anger and hatred but rather by concern, service and love.</td>
+                    <td>Dyarit, Joy T.</td>
+                    <td>National Midweek. 1(17) March 26 1986. p. 43+</td>
+                    <td>
+                        <ul>
+                            <li>Christianity and politics--Philippines</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Editorial: the unfinished revolution.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(18) April 2-9 1986. p.1</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--History--Revolution, 1986</li>
+                            <li>Marcos administration, 1965-1986</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mga tenyenteng naging NPA.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(18) April 2-9 1986. p.3+</td>
+                    <td>
+                        <ul>
+                            <li>New Peoples Army (NPA)--Philippines</li>
+                            <li>Reform the AFP Movement (RAM)</li>
+                            <li>Philippines--History--Revolution, 1986</li>
+                            <li>Corpus, Victor N., 1944---Interviews</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>With hope & skepticism.</td>
+                    <td></td>
+                    <td>Gamalinda, Eric</td>
+                    <td>National Midweek. 1(18) April 2-9 1986. p.7+</td>
+                    <td>
+                        <ul>
+                            <li>Martial law--Philippines</li>
+                            <li>Movement for the Advancement of Nationalism (MAN)</li>
+                            <li>Prudente, Nemensio E., 1926-2008--Activists--Philippines--Interviews.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Poets and people's power: the writer, no matter how much he might deny it, is a child of his times. he cannot help but write about his times.</td>
+                    <td>The writer, no matter how much he might deny it, is a child of his times. he cannot help but write about his times.</td>
+                    <td>Lanot, Marra PL.</td>
+                    <td>National Midweek. 1(18) April 2-9 1986. p.10+</td>
+                    <td>
+                        <ul>
+                            <li>Literature--Censorship--Philippines</li>
+                            <li>Aguilar, Mila--Authors--Political and social views--Interviews</li>
+                            <li>Prudente, Nemensio E., 1926-2008--Activists--Philippines--Interviews</li>
+                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Only half the battle has been won now: ex-detainees express hope, gratitude and wariness.</td>
+                    <td>Ex-detainees express hope, gratitude and wariness.</td>
+                    <td>
+                        <ul>
+                            <li>Gamalinda, Eric</li>
+                            <li>Aljibe, Ted</li>
+                        </ul>
+                    </td>
+                    <td>National Midweek. 1(18) April 2-9 1986. p.14+</td>
+                    <td>
+                        <ul>
+                            <li>Political prisoners,  Abuse of—Philippines</li>
+                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>The two prison terms of Alan Jazmines.</td>
+                    <td></td>
+                    <td>Parel, Tezza O.</td>
+                    <td>National Midweek. 1(18) April 2-9 1986. p.16+</td>
+                    <td>
+                        <ul>
+                            <li>Jazmines, Alan V., 1947---Political prisoners, Abuse of--Philippines--Interviews</li>
+                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Local elections, anyone?</td>
+                    <td></td>
+                    <td>Afuang, Pruny V.</td>
+                    <td>National Midweek. 1(18) April 2-9 1986. p.21+</td>
+                    <td>
+                        <ul>
+                            <li>Philippines--Politics and government--1986</li>
+                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Straight talk: current political forces.</td>
+                    <td></td>
+                    <td>Sison, J.L.</td>
+                    <td>National Midweek. 1(20) April 23 1986. p. 3</td>
+                    <td>
+                        <ul>
+                            <li>Aquino administration, 1986-1992--Philippines--Politics and government</li>
+                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>More power to the people.</td>
+                    <td></td>
+                    <td>Parel, Tezza O.</td>
+                    <td>National Midweek. 1(20) April 23 1986. p. 4+</td>
+                    <td>
+                        <ul>
+                            <li>Kilusan sa Kapangyarihan at Karapatan ng Bayan (KAAKBAY)</li>
+                            <li>Lakas ng Sambayanan (LAKAS)</li>
+                            <li>Philippines--History--People power--Revolution, 1986</li>
+                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Desaparecidos filipinos.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(20) April 23 1986. p. 10+</td>
+                    <td>
+                        <ul>
+                            <li>Tayag, Carlos--Missing persons--Marcos administration, 1965-1986</li>
+                            <li>Ilagan, Rizalina--Missing persons--Marcos administration, 1965-1986</li>
+                            <li>Catallas, Cristina--Missing persons--Marcos administration</li>
+                            <li>Sales, Jesica--Missing persons--Marcos administration, 1965-1986</li>
+                            <li>Lagman, Hermon--Missing persons--Marcos administration, 1965-1986</li>
+                            <li>Reyes, Victor--Missing persons--Marcos administration, 1965-1986</li>
+                         </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Probing the nightmare.</td>
+                    <td></td>
+                    <td>Pimentel, Benjamin Jr. R.</td>
+                    <td>National Midweek. 1(20) April 23 1986. p. 14+</td>
+                    <td>
+                        <ul>
+                            <li>Human rights--Protection</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tales from the south of Negros: how the military brought terror and death to the people of barangay Manlocahoc, in the town of Sipalay.</td>
+                    <td>How the military brought terror and death to the people of barangay Manlocahoc, in the town of Sipalay.</td>
+                    <td>Cleto, Pet G.</td>
+                    <td>National Midweek. 1(20) April 23 1986. p. 20+</td>
+                    <td>
+                        <ul>
+                            <li>Extrajudicial executions--Negros Occidental, Philippines</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>An encounter in Maguindanao: the Moro Islamic Liberation Front carries on the struggle to defend a people and their homeland.</td>
+                    <td>The Moro Islamic Liberation Front carries on the struggle to defend a people and their homeland.</td>
+                    <td>Pimentel, Benjamin Jr. R.</td>
+                    <td>National Midweek. 1(22) May 7 1986. p. 3</td>
+                    <td>
+                        <ul>
+                            <li>Moro Islamic Liberation Front (MILF)--Peace movements--Mindanao (Philippines)</li>
+                            <li>Moro National Liberation Front (MNLF)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>The MILF meets the press.</td>
+                    <td></td>
+                    <td></td>
+                    <td>National Midweek. 1(22) May 7 1986. p. 8</td>
+                    <td>
+                        <ul>
+                            <li>Moro Islamic Liberation Front (MILF)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reassessing reality.</td>
+                    <td></td>
+                    <td>Teodoro, Luis V.</td>
+                    <td>National Midweek. 1(23) May 14 1986. p. 3</td>
+                    <td>
+                        <ul>
+                            <li>Moro Islamic Liberation Front (MILF)</li>
+                            <li>Philippines--Politics and government, 1986-1992</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MILF leaders on war & peace.</td>
+                    <td></td>
+                    <td>Pimentel, Benjamin Jr. R.</td>
+                    <td>National Midweek. 1(23) May 14 1986. p. 16+</td>
+                    <td>
+                        <ul>
+                            <li>Moro Islamic Liberation Front (MILF)</li>
+                            <li>Christianity and other religions--Islamic--War--Religious aspects</li>
+                            <li></li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <!-- Add more rows for other articles -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Function to handle search bar input and filter the table rows
+        function searchArticles() {
+            var input, filter, table, tr, td, i, j, txtValue, found;
+            input = document.getElementById("searchBar");
+            filter = input.value.toUpperCase();
+            table = document.getElementsByTagName("table")[0];
+            tr = table.getElementsByTagName("tr");
+    
+            // Loop through all rows of the table
+            for (i = 1; i < tr.length; i++) {
+                tr[i].style.display = "none"; // Hide the row by default
+                td = tr[i].getElementsByTagName("td");
+                found = false;
+    
+                // Loop through all columns of the current row
+                for (j = 0; j < td.length; j++) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    // Check if any of the column values match the search query
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break; // No need to check other columns if a match is found
+                    }
+                }
+    
+                // Display the row if a match is found in any column
+                if (found) {
+                    tr[i].style.display = "";
+                }
+            }
+        }
+    
+        // Function to alphabetize the table by the "Title" column
+        function alphabetizeByTitle() {
+            // Your sorting function code here
+    
+            // Toggle sort icon
+            var titleHeader = document.getElementsByTagName("th")[0];
+            titleHeader.classList.toggle("sort-asc");
+            titleHeader.classList.toggle("sort-desc");
+        }
+    
+        // Function to alphabetize the table by the "Author" column
+        function alphabetizeByAuthor() {
+            // Your sorting function code here
+    
+            // Toggle sort icon
+            var authorHeader = document.getElementsByTagName("th")[2];
+            authorHeader.classList.toggle("sort-asc");
+            authorHeader.classList.toggle("sort-desc");
+        }
+    
+        // Attach the searchArticles function to the search bar input event
+        document.getElementById("searchBar").addEventListener("keyup", searchArticles);
+    
+        // Attach the alphabetizeByTitle function to the "Title" column header click event
+        document.getElementsByTagName("th")[0].addEventListener("click", alphabetizeByTitle);
+    
+        // Attach the alphabetizeByAuthor function to the "Author" column header click event
+        document.getElementsByTagName("th")[2].addEventListener("click", alphabetizeByAuthor);
+    </script>    
+</body>
+</html>
